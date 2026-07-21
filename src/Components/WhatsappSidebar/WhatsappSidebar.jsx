@@ -7,14 +7,14 @@ const WhatsappSidebar = () => {
     return (
         <aside>
             <h2>Whatsapp</h2>
-            <div>
+            <div className= "WhatsApp">
                 {
                     contacts.map(
                         (contact) => {
                             return (
                                 <Link to={`/contact/${contact.id}`} key={contact.id}>
                                     <h3>{contact.name}</h3>
-                                    <p>{contact.lastMessage}</p>
+                                    <p>{contact.ult_mensaje}</p>
                                     <hr />
                                 </Link>
                             )

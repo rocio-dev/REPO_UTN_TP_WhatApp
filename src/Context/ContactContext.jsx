@@ -6,109 +6,104 @@ const ContactContext = createContext()
 const server_contacts = [
     {
         id: 1,
-        name: "Juan Pérez",
-        lastMessage: "Nos vemos mañana!",
+        name: "Maria Fernandez",
+        ult_mensaje: "Dale, me encantaria",
         messages: [
             {
                 id: 1,
                 sendByMe: false,
-                content: "hola!"
+                content: "Hola!, ¿Como estas?"
             },
             {
                 id: 2,
                 sendByMe: true,
-                content: "Todo bien!"
+                content: "Hola, todo bien!"
             },
             {
                 id: 3,
                 sendByMe: false,
-                content: "Que tal?"
+                content: "Me alegro, ¿Te gustaria salir el sabado?"
             },
             {
                 id: 4,
                 sendByMe: true,
-                content: "Todo bien!"
+                content: "Dale, me encantaria"
             }
         ]
     },
     {
         id: 2,
-        name: "María Gómez",
-        lastMessage: "Dale, gracias 🙏",
+        name: "Pepito",
+        ult_mensaje: "Dale, gracias ",
         messages: [
             {
                 id: 1,
                 sendByMe: false,
-                content: "hola!"
+                content: "Che ¿sabes si para mañana habia tarea?"
             },
             {
                 id: 2,
                 sendByMe: true,
-                content: "Todo bien!"
+                content: "La verdad, no tengo la menor idea, fiajte en la plataforma "
             },
             {
                 id: 3,
                 sendByMe: false,
-                content: "Que tal?"
-            },
-            {
-                id: 4,
-                sendByMe: true,
-                content: "Todo bien!"
+                content: "Dale, gracias "
             }
         ]
     },
     {
         id: 3,
-        name: "Carlos Ruiz",
-        lastMessage: "Te mando el archivo",
+        name: "Juancito",
+        ult_mensaje: "Dale, esperame un minuto",
         messages: [
             {
                 id: 1,
                 sendByMe: false,
-                content: "hola!"
+                content: "Holaaaa"
             },
             {
                 id: 2,
                 sendByMe: true,
-                content: "Todo bien!"
+                content: "Hola Juan ¿como estas?"
             },
             {
                 id: 3,
                 sendByMe: false,
-                content: "Que tal?"
+                content: "Todo bien, che me pasas las fotos de la juntada pasada"
             },
             {
                 id: 4,
                 sendByMe: true,
-                content: "Todo bien!"
+                content: "Dale, esperame un minuto"
             }
         ]
     },
     {
         id: 4,
-        name: "Lucía Fernández",
-        lastMessage: "Jajaja sí",
+        name: "Julieta Perez",
+        ult_mensaje: "Ok, yo te aviso",
         messages: [
             {
                 id: 1,
                 sendByMe: false,
-                content: "hola!"
+                content: "Estas ocupada? Te puedo llamar"
             },
             {
                 id: 2,
                 sendByMe: true,
-                content: "Todo bien!"
+                content: "Mira ahora estoy ocupada Juli, en otro momento"
             },
             {
                 id: 3,
                 sendByMe: false,
-                content: "Que tal?"
+                content: "Ah okey,  cuando puedas"
             },
             {
                 id: 4,
                 sendByMe: true,
-                content: "Todo bien!"
+                content: "Ok, yo te aviso"
             }
         ]
     },
