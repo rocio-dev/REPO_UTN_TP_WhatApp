@@ -1,0 +1,343 @@
+/* ========================================
+   WhatsApp Web Sidebar Styles
+   ======================================== */
+
+/* Google Font import for WhatsApp-like typography */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+/* ---------- Sidebar Container ---------- */
+.sidebar {
+  width: 100%;
+  max-width: 440px;
+  height: 100vh;
+  background-color: #111b21;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Inter', 'Segoe UI', Helvetica, Arial, sans-serif;
+  border-right: 1px solid #222d34;
+  overflow: hidden;
+}
+
+/* ---------- Header ---------- */
+.sidebar__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  background-color: #202c33;
+  min-height: 59px;
+  box-sizing: border-box;
+}
+
+.sidebar__header-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #6b7c85;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.sidebar__header-avatar svg {
+  fill: #aebac1;
+}
+
+.sidebar__header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sidebar__header-btn {
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.sidebar__header-btn:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.sidebar__header-btn svg {
+  fill: #aebac1;
+}
+
+/* ---------- Search Bar ---------- */
+.sidebar__search {
+  padding: 7px 12px;
+  background-color: #111b21;
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.sidebar__search-container {
+  display: flex;
+  align-items: center;
+  background-color: #202c33;
+  border-radius: 8px;
+  padding: 0 12px;
+  height: 35px;
+  flex: 1;
+  transition: background-color 0.15s ease;
+}
+
+.sidebar__search-container:focus-within {
+  background-color: #2a3942;
+}
+
+.sidebar__search-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+  transition: transform 0.2s ease;
+}
+
+.sidebar__search-container:focus-within .sidebar__search-icon {
+  transform: rotate(0deg);
+}
+
+.sidebar__search-icon svg {
+  fill: #8696a0;
+  width: 16px;
+  height: 16px;
+}
+
+.sidebar__search-container:focus-within .sidebar__search-icon svg {
+  fill: #00a884;
+}
+
+.sidebar__search-input {
+  flex: 1;
+  background: none;
+  border: none;
+  outline: none;
+  color: #e9edef;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+.sidebar__search-input::placeholder {
+  color: #8696a0;
+  font-size: 14px;
+}
+
+.sidebar__filter-btn {
+  width: 35px;
+  height: 35px;
+  border: none;
+  background: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-left: 6px;
+  transition: background-color 0.15s ease;
+}
+
+.sidebar__filter-btn:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.sidebar__filter-btn svg {
+  fill: #8696a0;
+}
+
+/* ---------- Contact List ---------- */
+.sidebar__contacts {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar (WhatsApp-like) */
+.sidebar__contacts::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar__contacts::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar__contacts::-webkit-scrollbar-thumb {
+  background-color: rgba(134, 150, 160, 0.35);
+  border-radius: 4px;
+}
+
+.sidebar__contacts::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(134, 150, 160, 0.55);
+}
+
+/* ---------- Contact Item ---------- */
+.sidebar__contact-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.sidebar__contact {
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  height: 72px;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+  position: relative;
+}
+
+.sidebar__contact:hover {
+  background-color: #202c33;
+}
+
+.sidebar__contact::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 15px;
+  left: 76px;
+  height: 1px;
+  background-color: #222d34;
+}
+
+/* ---------- Contact Avatar ---------- */
+.sidebar__contact-avatar {
+  width: 49px;
+  height: 49px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 500;
+  color: #fff;
+  margin-right: 13px;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Avatar color palette (WhatsApp-like greens, teals, blues, etc.) */
+.sidebar__contact-avatar--color-0 { background-color: #00a884; }
+.sidebar__contact-avatar--color-1 { background-color: #53bdeb; }
+.sidebar__contact-avatar--color-2 { background-color: #e68352; }
+.sidebar__contact-avatar--color-3 { background-color: #7f66ff; }
+.sidebar__contact-avatar--color-4 { background-color: #d4457d; }
+.sidebar__contact-avatar--color-5 { background-color: #e6a630; }
+
+/* ---------- Contact Info ---------- */
+.sidebar__contact-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.sidebar__contact-top-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 3px;
+}
+
+.sidebar__contact-name {
+  font-size: 16.5px;
+  font-weight: 400;
+  color: #e9edef;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.sidebar__contact-time {
+  font-size: 12px;
+  color: #8696a0;
+  white-space: nowrap;
+  margin-left: 6px;
+  flex-shrink: 0;
+}
+
+.sidebar__contact-bottom-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sidebar__contact-message {
+  font-size: 14px;
+  color: #8696a0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+  line-height: 1.35;
+  flex: 1;
+  min-width: 0;
+}
+
+.sidebar__contact-message-icon {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 3px;
+  vertical-align: middle;
+}
+
+.sidebar__contact-message-icon svg {
+  fill: #53bdeb;
+  width: 18px;
+  height: 18px;
+}
+
+/* ---------- Unread badge (optional) ---------- */
+.sidebar__contact-badge {
+  background-color: #00a884;
+  color: #111b21;
+  font-size: 11px;
+  font-weight: 600;
+  min-width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 5px;
+  margin-left: 6px;
+  flex-shrink: 0;
+}
+
+/* ---------- Subtle animations ---------- */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.sidebar__contact-link {
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.sidebar__contact-link:nth-child(1) { animation-delay: 0.03s; }
+.sidebar__contact-link:nth-child(2) { animation-delay: 0.06s; }
+.sidebar__contact-link:nth-child(3) { animation-delay: 0.09s; }
+.sidebar__contact-link:nth-child(4) { animation-delay: 0.12s; }
+.sidebar__contact-link:nth-child(5) { animation-delay: 0.15s; }
+.sidebar__contact-link:nth-child(6) { animation-delay: 0.18s; }
