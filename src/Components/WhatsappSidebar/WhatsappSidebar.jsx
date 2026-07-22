@@ -15,8 +15,7 @@ const WhatsappSidebar = () => {
         return parts[0][0]
     }
 
-    // Simulated times for a realistic look
-    const times = ['10:32', 'Ayer', 'Ayer', 'Lunes']
+
 
     return (
         <aside className="sidebar">
@@ -81,7 +80,7 @@ const WhatsappSidebar = () => {
             <div className="sidebar__contacts">
                 {
                     contacts.map(
-                        (contact, index) => {
+                        (contact) => {
                             const colorIndex = contact.id % 6
                             return (
                                 <Link 
@@ -98,9 +97,6 @@ const WhatsappSidebar = () => {
                                         <div className="sidebar__contact-info">
                                             <div className="sidebar__contact-top-row">
                                                 <h3 className="sidebar__contact-name">{contact.name}</h3>
-                                                <span className="sidebar__contact-time">
-                                                    {times[index] || '12:00'}
-                                                </span>
                                             </div>
                                             <div className="sidebar__contact-bottom-row">
                                                 <p className="sidebar__contact-message">

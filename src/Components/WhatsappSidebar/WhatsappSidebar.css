@@ -1,8 +1,9 @@
 /* ========================================
-   WhatsApp Web Sidebar Styles
+   WhatsApp Web Sidebar — Pixel-accurate styles
+   Based on WhatsApp Web (dark mode, 2024+)
    ======================================== */
 
-/* Google Font import for WhatsApp-like typography */
+/* WhatsApp Web uses Segoe UI on Windows, Helvetica Neue on Mac */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
 
 /* ---------- Sidebar Container ---------- */
@@ -13,9 +14,12 @@
   background-color: #111b21;
   display: flex;
   flex-direction: column;
-  font-family: 'Inter', 'Segoe UI', Helvetica, Arial, sans-serif;
-  border-right: 1px solid #222d34;
+  font-family: 'Segoe UI', 'Inter', Helvetica, Arial, sans-serif;
+  border-right: 1px solid #2a3942;
   overflow: hidden;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* ---------- Header ---------- */
@@ -27,17 +31,23 @@
   background-color: #202c33;
   min-height: 59px;
   box-sizing: border-box;
+  flex-shrink: 0;
 }
 
 .sidebar__header-avatar {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: #6b7c85;
+  background-color: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.sidebar__header-avatar:hover {
+  opacity: 0.8;
 }
 
 .sidebar__header-avatar svg {
@@ -47,7 +57,7 @@
 .sidebar__header-actions {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 2px;
 }
 
 .sidebar__header-btn {
@@ -60,11 +70,16 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: background-color 0.15s ease;
+  transition: background-color 0.2s ease;
+  position: relative;
 }
 
 .sidebar__header-btn:hover {
-  background-color: rgba(255, 255, 255, 0.08);
+  background-color: hsla(0, 0%, 100%, 0.1);
+}
+
+.sidebar__header-btn:active {
+  background-color: hsla(0, 0%, 100%, 0.15);
 }
 
 .sidebar__header-btn svg {
@@ -73,11 +88,12 @@
 
 /* ---------- Search Bar ---------- */
 .sidebar__search {
-  padding: 7px 12px;
+  padding: 6px 12px 6px 12px;
   background-color: #111b21;
   display: flex;
   align-items: center;
   gap: 0;
+  flex-shrink: 0;
 }
 
 .sidebar__search-container {
@@ -85,10 +101,10 @@
   align-items: center;
   background-color: #202c33;
   border-radius: 8px;
-  padding: 0 12px;
+  padding: 0 8px 0 12px;
   height: 35px;
   flex: 1;
-  transition: background-color 0.15s ease;
+  transition: background-color 0.2s ease;
 }
 
 .sidebar__search-container:focus-within {
@@ -99,18 +115,21 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 12px;
-  transition: transform 0.2s ease;
+  width: 28px;
+  flex-shrink: 0;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* WhatsApp rotates the icon when focused (back arrow feel) */
 .sidebar__search-container:focus-within .sidebar__search-icon {
-  transform: rotate(0deg);
+  transform: rotateY(180deg);
 }
 
 .sidebar__search-icon svg {
   fill: #8696a0;
   width: 16px;
   height: 16px;
+  transition: fill 0.15s ease;
 }
 
 .sidebar__search-container:focus-within .sidebar__search-icon svg {
@@ -122,19 +141,22 @@
   background: none;
   border: none;
   outline: none;
-  color: #e9edef;
-  font-size: 14px;
+  color: #d1d7db;
+  font-size: 13.5px;
   font-family: inherit;
+  padding: 0 0 0 10px;
+  height: 100%;
+  letter-spacing: 0;
 }
 
 .sidebar__search-input::placeholder {
   color: #8696a0;
-  font-size: 14px;
+  font-size: 13.5px;
 }
 
 .sidebar__filter-btn {
-  width: 35px;
-  height: 35px;
+  width: 28px;
+  height: 28px;
   border: none;
   background: none;
   border-radius: 50%;
@@ -142,12 +164,13 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  margin-left: 6px;
-  transition: background-color 0.15s ease;
+  margin-left: 8px;
+  transition: background-color 0.2s ease;
+  flex-shrink: 0;
 }
 
 .sidebar__filter-btn:hover {
-  background-color: rgba(255, 255, 255, 0.08);
+  background-color: hsla(0, 0%, 100%, 0.1);
 }
 
 .sidebar__filter-btn svg {
@@ -161,7 +184,7 @@
   overflow-x: hidden;
 }
 
-/* Custom scrollbar (WhatsApp-like) */
+/* WhatsApp Web thin scrollbar */
 .sidebar__contacts::-webkit-scrollbar {
   width: 6px;
 }
@@ -171,12 +194,12 @@
 }
 
 .sidebar__contacts::-webkit-scrollbar-thumb {
-  background-color: rgba(134, 150, 160, 0.35);
-  border-radius: 4px;
+  background-color: hsla(210, 10%, 58%, 0.3);
+  border-radius: 3px;
 }
 
 .sidebar__contacts::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(134, 150, 160, 0.55);
+  background-color: hsla(210, 10%, 58%, 0.5);
 }
 
 /* ---------- Contact Item ---------- */
@@ -184,12 +207,14 @@
   text-decoration: none;
   color: inherit;
   display: block;
+  opacity: 0;
+  animation: sidebarFadeIn 0.25s ease forwards;
 }
 
 .sidebar__contact {
   display: flex;
   align-items: center;
-  padding: 0 15px;
+  padding: 0 12px 0 13px;
   height: 72px;
   cursor: pointer;
   transition: background-color 0.15s ease;
@@ -200,14 +225,36 @@
   background-color: #202c33;
 }
 
+/* Active / Selected state — green left border like WhatsApp Web */
+.sidebar__contact-link:active .sidebar__contact,
+.sidebar__contact-link.active .sidebar__contact {
+  background-color: #2a3942;
+}
+
+.sidebar__contact-link.active .sidebar__contact::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background-color: #00a884;
+}
+
+/* Divider line between contacts */
 .sidebar__contact::after {
   content: '';
   position: absolute;
   bottom: 0;
   right: 15px;
-  left: 76px;
+  left: 72px;
   height: 1px;
   background-color: #222d34;
+}
+
+/* Remove divider from last contact */
+.sidebar__contact-link:last-child .sidebar__contact::after {
+  display: none;
 }
 
 /* ---------- Contact Avatar ---------- */
@@ -219,16 +266,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 500;
   color: #fff;
   margin-right: 13px;
   text-transform: uppercase;
   position: relative;
   overflow: hidden;
+  letter-spacing: 0.5px;
 }
 
-/* Avatar color palette (WhatsApp-like greens, teals, blues, etc.) */
+/* WhatsApp avatar color palette */
 .sidebar__contact-avatar--color-0 { background-color: #00a884; }
 .sidebar__contact-avatar--color-1 { background-color: #53bdeb; }
 .sidebar__contact-avatar--color-2 { background-color: #e68352; }
@@ -243,43 +291,22 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 13px 0;
+  height: 100%;
+  box-sizing: border-box;
 }
 
 .sidebar__contact-top-row {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  margin-bottom: 3px;
+  margin-bottom: 2px;
 }
 
 .sidebar__contact-name {
-  font-size: 16.5px;
+  font-size: 17px;
   font-weight: 400;
   color: #e9edef;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  margin: 0;
-  line-height: 1.3;
-}
-
-.sidebar__contact-time {
-  font-size: 12px;
-  color: #8696a0;
-  white-space: nowrap;
-  margin-left: 6px;
-  flex-shrink: 0;
-}
-
-.sidebar__contact-bottom-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.sidebar__contact-message {
-  font-size: 14px;
-  color: #8696a0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -289,20 +316,59 @@
   min-width: 0;
 }
 
+.sidebar__contact-time {
+  font-size: 12px;
+  color: #8696a0;
+  white-space: nowrap;
+  margin-left: 6px;
+  flex-shrink: 0;
+  line-height: 1.35;
+}
+
+/* Unread state: time text turns green */
+.sidebar__contact--unread .sidebar__contact-time {
+  color: #00a884;
+}
+
+.sidebar__contact-bottom-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+}
+
+.sidebar__contact-message {
+  font-size: 13.5px;
+  color: #8696a0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+  line-height: 1.4;
+  flex: 1;
+  min-width: 0;
+}
+
 .sidebar__contact-message-icon {
   display: inline-flex;
   align-items: center;
-  margin-right: 3px;
+  margin-right: 2px;
   vertical-align: middle;
 }
 
+/* Double check marks — blue for read */
 .sidebar__contact-message-icon svg {
   fill: #53bdeb;
   width: 18px;
   height: 18px;
 }
 
-/* ---------- Unread badge (optional) ---------- */
+/* Grey check marks for delivered but unread */
+.sidebar__contact-message-icon--delivered svg {
+  fill: #8696a0;
+}
+
+/* ---------- Unread Badge ---------- */
 .sidebar__contact-badge {
   background-color: #00a884;
   color: #111b21;
@@ -317,10 +383,58 @@
   padding: 0 5px;
   margin-left: 6px;
   flex-shrink: 0;
+  box-sizing: border-box;
 }
 
-/* ---------- Subtle animations ---------- */
-@keyframes fadeIn {
+/* Muted contact badge */
+.sidebar__contact-badge--muted {
+  background-color: #8696a0;
+  color: #111b21;
+}
+
+/* ---------- Pinned Indicator ---------- */
+.sidebar__contact-pinned {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 6px;
+  flex-shrink: 0;
+}
+
+.sidebar__contact-pinned svg {
+  fill: #8696a0;
+  width: 16px;
+  height: 16px;
+}
+
+/* ---------- Dropdown Chevron on Hover ---------- */
+.sidebar__contact-chevron {
+  position: absolute;
+  right: 12px;
+  top: 14px;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.sidebar__contact:hover .sidebar__contact-chevron {
+  opacity: 1;
+}
+
+.sidebar__contact-chevron svg {
+  fill: #8696a0;
+  width: 18px;
+  height: 18px;
+}
+
+/* ---------- Entrance Animations ---------- */
+@keyframes sidebarFadeIn {
   from {
     opacity: 0;
     transform: translateY(4px);
@@ -331,13 +445,42 @@
   }
 }
 
-.sidebar__contact-link {
-  animation: fadeIn 0.3s ease forwards;
+/* Stagger entrance animation for first visible contacts */
+.sidebar__contact-link:nth-child(1)  { animation-delay: 0.02s; }
+.sidebar__contact-link:nth-child(2)  { animation-delay: 0.04s; }
+.sidebar__contact-link:nth-child(3)  { animation-delay: 0.06s; }
+.sidebar__contact-link:nth-child(4)  { animation-delay: 0.08s; }
+.sidebar__contact-link:nth-child(5)  { animation-delay: 0.10s; }
+.sidebar__contact-link:nth-child(6)  { animation-delay: 0.12s; }
+.sidebar__contact-link:nth-child(7)  { animation-delay: 0.14s; }
+.sidebar__contact-link:nth-child(8)  { animation-delay: 0.16s; }
+.sidebar__contact-link:nth-child(9)  { animation-delay: 0.18s; }
+.sidebar__contact-link:nth-child(10) { animation-delay: 0.20s; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .sidebar {
+    max-width: 100%;
+    border-right: none;
+  }
 }
 
-.sidebar__contact-link:nth-child(1) { animation-delay: 0.03s; }
-.sidebar__contact-link:nth-child(2) { animation-delay: 0.06s; }
-.sidebar__contact-link:nth-child(3) { animation-delay: 0.09s; }
-.sidebar__contact-link:nth-child(4) { animation-delay: 0.12s; }
-.sidebar__contact-link:nth-child(5) { animation-delay: 0.15s; }
-.sidebar__contact-link:nth-child(6) { animation-delay: 0.18s; }
+/* ---------- Empty state ---------- */
+.sidebar__empty {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #8696a0;
+  font-size: 14px;
+  padding: 40px 20px;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.sidebar__empty svg {
+  fill: #8696a0;
+  margin-bottom: 16px;
+  opacity: 0.6;
+}
