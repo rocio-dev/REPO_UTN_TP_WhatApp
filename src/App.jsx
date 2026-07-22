@@ -1,12 +1,7 @@
 import React, { useState } from 'react'
 
-import Contador from './Components/Contador/Contador'
-import Modal from './Components/Modal/Modal'
-import useModal from './hooks/useModal'
 import Messages from './Components/Messages/Messages'
-
 import HomeScreen from './Screens/HomeScreen/HomeScreen'
-
 import { Route, Routes } from 'react-router'
 import LoginScreen from './Screens/LoginScreen/LoginScreen'
 import ContactChatScreen from './Screens/ContactChatScreen/ContactChatScreen'
@@ -15,9 +10,6 @@ import { ContactContextProvider } from './Context/ContactContext'
 
 //Las funciones que devuelven HTML se llaman componentes
 function App() {
-
-
-
 
   return (
     <ThemeContextProvider>
