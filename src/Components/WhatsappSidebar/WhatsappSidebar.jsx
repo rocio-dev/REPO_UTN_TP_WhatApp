@@ -2,7 +2,6 @@ import React, { useContext } from 'react'
 import { Link } from 'react-router'
 import { ContactContext } from '../../Context/ContactContext'
 import './WhatsappSidebar.css'
-
 const WhatsappSidebar = () => {
     const { contacts } = useContext(ContactContext)
 
