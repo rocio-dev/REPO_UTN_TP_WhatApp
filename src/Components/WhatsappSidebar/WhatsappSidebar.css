@@ -34,26 +34,6 @@
   flex-shrink: 0;
 }
 
-.sidebar__header-avatar {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: transparent;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: opacity 0.15s ease;
-}
-
-.sidebar__header-avatar:hover {
-  opacity: 0.8;
-}
-
-.sidebar__header-avatar svg {
-  fill: #aebac1;
-}
-
 .sidebar__header-actions {
   display: flex;
   align-items: center;

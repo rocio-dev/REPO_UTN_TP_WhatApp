@@ -1,0 +1,147 @@
+/* Global Reset */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: 'Segoe UI', 'Inter', Helvetica, Arial, sans-serif;
+  background-color: #111b21;
+  color: #e9edef;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* App Layout — sidebar left, content right */
+.app-layout {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+/* ---------- Welcome Screen (HomeScreen) ---------- */
+.welcome-screen {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #222e35;
+  border-bottom: 6px solid #00a884;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.welcome-screen-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 500px;
+  padding: 32px;
+}
+
+.welcome-screen-lock {
+  margin-bottom: 32px;
+}
+
+.welcome-screen-title {
+  font-size: 32px;
+  font-weight: 300;
+  color: #e9edef;
+  margin-bottom: 12px;
+}
+
+.welcome-screen-text {
+  font-size: 14px;
+  color: #8696a0;
+  line-height: 1.5;
+  margin-bottom: 28px;
+}
+
+
+.welcome-screen-divider {
+  width: 60%;
+  height: 1px;
+  background-color: #2a3942;
+  margin-bottom: 28px;
+}
+
+.welcome-screen-encryption {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #8696a0;
+}
+
+.welcome-screen-encryption svg {
+  fill: #8696a0;
+  flex-shrink: 0;
+}
+
+/* ---------- Chat Area (ContactChatScreen) ---------- */
+.chat-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #222e35;
+  background-image: url("data:image/svg+xml,%3Csvg width='400' height='400' viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%232a3942' fill-opacity='0.15'%3E%3Ccircle cx='100' cy='100' r='1'/%3E%3Ccircle cx='300' cy='200' r='1'/%3E%3Ccircle cx='200' cy='350' r='1'/%3E%3Ccircle cx='50' cy='250' r='1'/%3E%3Ccircle cx='350' cy='50' r='1'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  padding: 10px 16px;
+  background-color: #202c33;
+  min-height: 59px;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.chat-header-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.chat-header-name {
+  font-size: 17px;
+  font-weight: 400;
+  color: #e9edef;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+}
+
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px 60px;
+}
+
+/* Scrollbar for chat messages */
+.chat-messages::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chat-messages::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+  background-color: hsla(210, 10%, 58%, 0.3);
+  border-radius: 3px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb:hover {
+  background-color: hsla(210, 10%, 58%, 0.5);
+}

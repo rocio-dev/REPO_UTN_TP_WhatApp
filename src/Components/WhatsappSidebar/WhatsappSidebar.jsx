@@ -21,14 +21,12 @@ const WhatsappSidebar = () => {
         <aside className="sidebar">
             {/* Header */}
             <header className="sidebar__header">
-                <div className="sidebar__header-avatar">
-                    {/* New chat icon */}
+                <div className="sidebar__header-actions">
                     <button className="sidebar__header-btn" title="Nuevo chat">
                         <svg viewBox="0 0 24 24" width="24" height="24">
                             <path d="M19.005 3.175H4.674C3.642 3.175 2.8 4.017 2.8 5.049V20.58c0 .444.197.859.54 1.142a1.474 1.474 0 0 0 1.227.273l3.076-.769a.4.4 0 0 1 .283.042l3.603 2.002a1.474 1.474 0 0 0 1.424.01l3.546-1.97a.4.4 0 0 1 .283-.038l3.088.772c.421.105.864.016 1.22-.245a1.474 1.474 0 0 0 .588-1.177V5.049c0-1.032-.842-1.874-1.874-1.874zM13.5 14.15h-3a.75.75 0 0 1 0-1.5h3a.75.75 0 0 1 0 1.5zm2.5-3.5h-8a.75.75 0 0 1 0-1.5h8a.75.75 0 0 1 0 1.5z" fill="currentColor"/>
                         </svg>
                     </button>
-                    {/* Menu icon */}
                     <button className="sidebar__header-btn" title="Menú">
                         <svg viewBox="0 0 24 24" width="24" height="24">
                             <path d="M12 7a2 2 0 1 0-.001-4.001A2 2 0 0 0 12 7zm0 2a2 2 0 1 0-.001 3.999A2 2 0 0 0 12 9zm0 6a2 2 0 1 0-.001 3.999A2 2 0 0 0 12 15z" fill="currentColor"/>

@@ -1,0 +1,57 @@
+.barra-whatsapp {
+    width: 68px;
+    min-width: 68px;
+    height: 100vh;
+    background-color: #202c33;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+    box-sizing: border-box;
+    flex-shrink: 0;
+}
+
+.barra-whatsapp-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.barra-whatsapp-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.barra-whatsapp-btn {
+    width: 48px;
+    height: 48px;
+    border: none;
+    background: none;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    color: #aebac1;
+}
+
+.barra-whatsapp-btn:hover {
+    background-color: hsla(0, 0%, 100%, 0.1);
+}
+
+.barra-whatsapp-btn:active {
+    background-color: hsla(0, 0%, 100%, 0.15);
+}
+
+.barra-whatsapp-btn svg {
+    fill: #aebac1;
+    transition: fill 0.2s ease;
+}
+
+.barra-whatsapp-btn:hover svg {
+    fill: #e9edef;
+}
